@@ -1,0 +1,31 @@
+nav.navbar.navbar-expand-lg.bg-light
+  .container-fluid
+    ul
+      = image_tag("logo.png", class: "img-responsive", id: "navbar-logo", style: 'height:50px; width:auto; padding-right: 25px')
+      = link_to 'Home', root_path, class: 'navbar-brand'
+      button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
+
+  #navbarSupportedContent.collapse.navbar-collapse
+
+    form.d-flex[role="search"]
+    input.form-control.me-2[type="search" placeholder="Search" aria-label="Search"]
+    button.btn.btn-outline-secondary[type="submit"]
+      | Search
+
+  ul.navbar-nav.me-auto.mb-2.mb-lg-0
+    .text-center    
+    li.nav-item
+    ul
+    - if user_signed_in?
+      li
+        span = 'Hello' % current_user.name
+        br
+        span = link_to 'Edit', edit_user_registration_path, class: "nav-link active"
+      li
+        = link_to 'Logout', destroy_user_session_path, class: "nav-link active", method: :delete
+    - else
+      li
+        = link_to 'Login', new_user_session_path, class: "nav-link active"
+      li
+        = link_to 'Registration', new_user_registration_path, class: "nav-link active"
+    ul    

@@ -20,5 +20,10 @@ module Newsblog
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.generators do |g|
+      g.org :active_record
+      g.template_engine :slim
+      g.factory_bot     dir: 'spec/factories'
+    end
   end
 end

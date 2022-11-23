@@ -1,0 +1,4 @@
+tr
+  td = link_to post.title.truncate(80), post, class: 'link-secondary'
+  td = link_to edit_post_path(post), class: 'btn btn-secondary' do
+    span.fa.fa-pencil

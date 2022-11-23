@@ -1,0 +1,14 @@
+table.table.table-striped
+  thead.table.table-dark
+    tr
+    th = 'Title'
+    th = 'Edit'
+
+  tbody
+    = render partial: 'post', collection: @posts, cached: true
+
+ul.pagination.pagination.justify-content-end
+  li.page-item
+  = paginate @posts, class: 'page-link'
+p
+  = link_to 'Post', new_post_path, class: 'btn btn-secondary' 

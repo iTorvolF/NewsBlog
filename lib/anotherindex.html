@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<script src="https://kit.fontawesome.com/16121caf4e.js" crossorigin="anonymous"></script>
+	<title> HTML ❤️ JS </title>
+</head>
+<style>
+	.button {
+		color: white;
+	}
+	.button--green {
+		background-color: green;
+	}
+	.button--blue {
+		background-color: blue;
+	}
+	.button--red {
+		background-color: red;
+	}
+</style>
+<script>
+	window.onload = () => {
+		const getButtonColorClass = () => {
+			const colors = ["green", "blue", "red"];
+			const index = Math.floor(Math.random() * colors.length);
+
+			return `button--${colors[index]}`;
+		}
+
+		const changeButtonClass = (buttonElement) => {
+			const colorClass = getButtonColorClass();
+			const className = `button ${colorClass}`;
+			buttonElement.className = className;
+		}
+
+		const handleClick = (event) => {
+			const buttonElement = event.target;
+			changeButtonClass(buttonElement);
+		}
+
+		const button = document.getElementById("button");
+		button.addEventListener("click", handleClick);	
+	}
+
+</script>
+	<body>
+		<button id="button" class="button button-greeb">Click me!</button>
+		<div id="hello">Hello from HTML</div>
+		<i class="fab fa-js"></i>
+	</body>
+</html>

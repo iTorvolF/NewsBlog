@@ -23,6 +23,9 @@ module Newsblog
     config.generators do |g|
       g.org :active_record
       g.template_engine :slim
+      g.helper          false
+      g.system_tests    nil
+      g.test_framework  nil
       g.factory_bot     dir: 'spec/factories'
     end
   end
